@@ -2,14 +2,29 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width-device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <title>To-do List</title>
   </head>
-  <body>
-    <h1>To Do List</h1>
-    <div class="container">
-      <input id="inputField" type="text" /><button id="addToDo">add</button>
-      <div class="to-dos" id="toDoContainer"></div>
+  <body class="flex items-center justify-center min-h-screen bg-gray-100">
+    <div class="bg-white p-6 shadow-lg rounded-md">
+      <h1 class="text-2xl font-bold text-center mb-4">To Do List</h1>
+      <div class="flex space-x-2 mb-4">
+        <input
+          id="inputField"
+          type="text"
+          class="border border-gray-300 p-2 w-full rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+          placeholder="Add a new task"
+        />
+        <button
+          id="addToDo"
+          class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"
+        >
+          Add
+        </button>
+      </div>
+      <div class="to-dos space-y-2" id="toDoContainer"></div>
     </div>
     <script src="route.js"></script>
   </body>
