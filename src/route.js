@@ -1,6 +1,6 @@
-let addToDoButton = document.getElementById("addToDo");
-let toDoContainer = document.getElementById("toDoContainer");
-let inputField = document.getElementById("inputField");
+const addToDoButton = document.getElementById("addToDo");
+const toDoContainer = document.getElementById("toDoContainer");
+const inputField = document.getElementById("inputField");
 
 addToDoButton.addEventListener("click", function () {
   if (!inputField.value.trim()) return; // Prevent adding empty tasks
@@ -13,4 +13,10 @@ addToDoButton.addEventListener("click", function () {
   paragraph.addEventListener("click", function () {
     paragraph.remove("p");
   });
+});
+
+const toggleButton = document.getElementById("theme-toggle");
+
+toggleButton.addEventListener("click", function () {
+  document.body.classList.toggle("dark");
 });
