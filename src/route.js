@@ -2,6 +2,7 @@ const addToDoButton = document.getElementById("addToDo");
 const toDoContainer = document.getElementById("toDoContainer");
 const inputField = document.getElementById("inputField");
 const toggleButton = document.getElementById("theme-toggle");
+const tagSelect = document.getElementById("tagSelect");
 
 function addToDo() {
   if (!inputField.value.trim()) return; // Prevent adding empty tasks
@@ -15,6 +16,18 @@ function addToDo() {
   paragraph.addEventListener("click", function () {
     paragraph.remove("p");
   });
+
+  const selecetedTag = tagSelect.value;
+  if (selecetedTag) {
+    const tagElement = document.createElement("span");
+    tagElement.innerText = selecetedTag;
+    tagElement.classList.add("ml-2", "text-sm", "text-blue-500");
+    paragraph.appendChild(tagElement);
+
+    toDoContainer.appendChild(paragraph);
+    inputField.value = "";
+    tagSelect.selcetedIndex = 0;
+  }
 }
 
 addToDoButton.addEventListener("click", addToDo);
