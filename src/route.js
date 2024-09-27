@@ -3,31 +3,37 @@ const toDoContainer = document.getElementById("toDoContainer");
 const inputField = document.getElementById("inputField");
 const toggleButton = document.getElementById("theme-toggle");
 const tagSelect = document.getElementById("tagSelect");
+const leftSideBar = document.getElementById("leftSideBar");
 
 function addToDo() {
-  if (!inputField.value.trim()) return; // Prevent adding empty tasks
+  const taskText = inputField.value.trim();
 
-  const paragraph = document.createElement("p"); // Create a new paragraph element
-  paragraph.innerText = inputField.value; // Set its content to the input field's value
-  paragraph.classList.add("text-black", "dark:text-white");
-  toDoContainer.appendChild(paragraph); // Attach paragraph to the todo container
-  inputField.value = ""; // Clearing the input field once prompt has been added.}
+  if (!taskText) return;
 
-  paragraph.addEventListener("click", function () {
-    paragraph.remove("p");
+  const toDoItem = document.createElement("p");
+  toDoItem.innerText = taskText;
+  toDoItem.classList.add("text-black", "dark:text-white");
+
+  toDoContainer.appendChild(toDoItem);
+
+  inputField.value = "";
+
+  toDoItem.addEventListener("click", function () {
+    toDoItem.remove("item");
   });
+}
 
-  const selecetedTag = tagSelect.value;
-  if (selecetedTag) {
-    const tagElement = document.createElement("span");
-    tagElement.innerText = selecetedTag;
-    tagElement.classList.add("ml-2", "text-sm", "text-blue-500");
-    paragraph.appendChild(tagElement);
+const selectedTag = tagSelect.value;
+if (selectedTag) {
+  const tagElement = document.createElement("span");
+  tagElement.innerText = selectedTag;
+  tagElement.classList.add("ml-2", "text-sm", "text-blue-500");
+  paragraph.appendChild(tagElement);
 
-    toDoContainer.appendChild(paragraph);
-    inputField.value = "";
-    tagSelect.selcetedIndex = 0;
-  }
+  toDoContainer.appendChild(paragraph);
+
+  inputField.value = "";
+  tagSelect.selcetedIndex = 0;
 }
 
 addToDoButton.addEventListener("click", addToDo);
