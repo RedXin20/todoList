@@ -16,24 +16,29 @@ function addToDo() {
 
   toDoContainer.appendChild(toDoItem);
 
+  const sideBarItem = document.createElement("li");
+  sideBarItem.innerText = taskText;
+  sideBarItem.classList.add("text-black", "dark:text-white");
+
+  leftSideBar.appendChild(sideBarItem);
+
   inputField.value = "";
 
   toDoItem.addEventListener("click", function () {
     toDoItem.remove("item");
   });
-}
 
-const selectedTag = tagSelect.value;
-if (selectedTag) {
-  const tagElement = document.createElement("span");
-  tagElement.innerText = selectedTag;
-  tagElement.classList.add("ml-2", "text-sm", "text-blue-500");
-  paragraph.appendChild(tagElement);
+  const selectedTag = tagSelect.value;
+  if (selectedTag) {
+    const tagElement = document.createElement("span");
+    tagElement.innerText = selectedTag;
+    tagElement.classList.add("ml-2", "text-sm", "text-blue-500");
 
-  toDoContainer.appendChild(paragraph);
+    toDoContainer.appendChild(tagElement);
 
-  inputField.value = "";
-  tagSelect.selcetedIndex = 0;
+    inputField.value = "";
+    tagSelect.selcetedIndex = 0;
+  }
 }
 
 addToDoButton.addEventListener("click", addToDo);
